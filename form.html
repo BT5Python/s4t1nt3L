@@ -96,6 +96,34 @@ h1 {
   background-color: #00cc00;
   box-shadow: 0 0 12px #00ff00;
 }
+
+/* Tombol baru di tengah */
+.middle-buttons {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: none;
+  text-align: center;
+}
+
+.middle-buttons button {
+  margin: 10px;
+  padding: 12px 28px;
+  background-color: #ff6600;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.middle-buttons button:hover {
+  background-color: #cc5200;
+  box-shadow: 0 0 12px #ff6600;
+}
 </style>
 </head>
 <body>
@@ -120,29 +148,43 @@ h1 {
 <div class="footer-button">
   <button onclick="window.location.href='database.html'">back to DATABASE</button>
 </div>
+
+<!-- Tombol Tengah (Pemuktahiran Data dan Riwayat Hidup) -->
+<div class="middle-buttons" id="middle-buttons">
+  <button onclick="window.location.href='pemuktahiran.html'">Pemuktahiran Data</button>
+  <button onclick="window.location.href='riwayat-hidup.html'">Riwayat Hidup</button>
+</div>
+
 <script>
 // Atur waktu dalam milidetik
-// 3000 = 3 detik
 let waktuTeks = 10000;
 let waktuTombol = 12000;
+let waktuTombolTengah = 10000; // Munculkan tombol tengah setelah 10 detik
 
 // Ambil elemen HTML
 let teksKedip = document.querySelector('.update-text');
 let tombolBack = document.querySelector('.footer-button');
+let tombolTengah = document.querySelector('#middle-buttons');
 
 // Sembunyikan dulu
 teksKedip.style.display = 'none';
 tombolBack.style.display = 'none';
+tombolTengah.style.display = 'none'; // Sembunyikan tombol tengah
 
 // Munculkan teks kedip
 setTimeout(() => {
     teksKedip.style.display = 'block';
 }, waktuTeks);
 
-// Munculkan tombol
+// Munculkan tombol bawah
 setTimeout(() => {
     tombolBack.style.display = 'block';
 }, waktuTombol);
+
+// Munculkan tombol tengah (Pemuktahiran Data dan Riwayat Hidup)
+setTimeout(() => {
+    tombolTengah.style.display = 'block';
+}, waktuTombolTengah);
 </script>
 
 </body>
